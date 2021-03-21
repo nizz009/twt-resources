@@ -8,5 +8,5 @@ Hello! The following are the links for the recordings of Typing with TypeScript 
  
 ### Note:
 <ol>
-  <li>The slides for Episode 2 and 3 have added to their respective folders.</li>
-  <li>The slides for Episode 1 and 4 will be available soon.</li>
+  <li>The slides for Episode 2, 3 and 4 have added to their respective folders.</li>
+  <li>The slides for Episode 1 will be available soon.</li>
