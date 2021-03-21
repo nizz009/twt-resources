@@ -10,3 +10,5 @@ Hello! The following are the links for the recordings of Typing with TypeScript 
 ### Note:
 <ol>
   <li>The slides for all the episodes have been added to their respective folders.</li>
+  <li>The task/project for the series can be found in the twt_task directory.</li>
+  <li>The pull request for the task/project needs to be submitted on/before 25th March 2021 (23:59 (GMT + 5:30)).</li> 
