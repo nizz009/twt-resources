@@ -7,7 +7,8 @@ var tens = 0;
 var appendTens = document.getElementById("tens");
 var appendSeconds = document.getElementById("seconds");
 var Interval ;
-var images = [
+var images = 
+[
   '1', 
   '2', 
   '3', 
