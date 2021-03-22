@@ -1,4 +1,6 @@
-# Welcome to the final task of the TwT Series!
+# Rules for the Typing with TypeScript final task
+
+Welcome to the final task of the TwT Series!
 
 ## Introduction:
 One of the major applications of TypeScript in today's world is converting an existing JavaScript code into an equivalent TypeScript code. So this task aims at helping the methods of migrating from JavaScript to TypeScript through an exciting game!
