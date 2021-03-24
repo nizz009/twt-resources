@@ -17,7 +17,7 @@ var images =
 ];
 
 var clone = images.slice(0); // duplicate array
-var cards = images.concat(clone); // merge to arrays 
+var cards:any = images.concat(clone); // merge to arrays 
 
 // Shufffel function
 function shuffle(o: string[]){
@@ -82,7 +82,7 @@ var win = function () {
   } 
   
 }
-     
+    
 function startTimer () {
   tens++; 
     
@@ -91,7 +91,7 @@ function startTimer () {
   }
     
   if (tens > 9){
-    appendtens(tens);
+    appendTens.innerHTML = "0" + tens;
       
   } 
     
@@ -103,16 +103,7 @@ function startTimer () {
   }
     
   if (seconds > 9){
-    appendseconds(seconds);
+    appendSeconds.innerHTML = "0" + seconds;
   }
   
 }
-
-function appendtens(tens:number) {
-  return appendTens.innerHTML;
-}
-
-function appendseconds(seconds: number) {
-  return appendSeconds.innerHTML;
-}
-
