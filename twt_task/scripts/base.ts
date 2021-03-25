@@ -1,63 +1,91 @@
-var myCards = document.getElementById('container');
-var resultsArray = [];
-var counter = 0;
-var text = document.getElementById('text');
-var seconds = 0; 
-var tens = 0; 
-var appendTens = document.getElementById("tens");
-var appendSeconds = document.getElementById("seconds");
-var Interval: number ;
-var images = 
-[
+class game {
+ myCards = document.getElementById('container');
+ resultsArray = [];
+ counter = 0;
+ text = document.getElementById('text');
+ seconds = 0; 
+ tens = 0; 
+ appendTens = document.getElementById("tens");
+ appendSeconds = document.getElementById("seconds");
+ Interval: number ;
+ images = 
+ [
   '1', 
   '2', 
   '3', 
   '4', 
   '5'
-];
+ ];
 
-var clone = images.slice(0); // duplicate array
-var cards = images.concat(clone); // merge to arrays 
+  clone = g.images.slice(0); // duplicate array
+  cards = g.images.concat(g.clone); // merge to arrays 
 
-// Shufffel function
-function shuffle(o: string[]){
+  // Shufffel function
+  shuffle(o: string[]){
   for(var j: number, x: any, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i],   o[i] = o[j], o[j] = x);
   return o;
-}
-shuffle(cards);
+  }
 
-for (var i = 0; i < cards.length; i++) {
+  startTimer () {
+    this.tens++; 
+      
+    if(g.tens < 9){
+      this.appendTens.innerHTML = "0" + this.tens;
+    }
+      
+    if (g.tens > 9){
+      this.appendTens.innerHTML = "0" + this.tens;
+        
+    } 
+      
+    if (this.tens > 99) {
+      this.seconds++;
+      this.appendSeconds.innerHTML = "0" + this.seconds;
+      this.tens = 0;
+      this.appendTens.innerHTML = "0" + 0;
+    }
+      
+    if (this.seconds > 9){
+      this.appendSeconds.innerHTML = "0" +this.seconds;
+    }
+    
+  }
+   
+}
+let g=new game;
+g.shuffle(g.cards);
+
+for (var i = 0; i < g.cards.length; i++) {
   var card= document.createElement('div');
-  card.dataset.item = cards[i];
+  card.dataset.item = g.cards[i];
   card.dataset.view = "card";
-  myCards.appendChild(card);
+  g.myCards.appendChild(card);
      
   card.onclick = function () {
    
     if (this.className!= 'flipped' && this.className!= 'correct'){
         this.className = 'flipped';
         var result = this.dataset.item;
-        resultsArray.push(result);
-        clearInterval(Interval);
-        Interval = setInterval(startTimer, 10);
+        g.resultsArray.push(result);
+        clearInterval(g.Interval);
+        g.Interval = setInterval(g.startTimer, 10);
     }
   
-    if (resultsArray.length > 1) {
+    if (g.resultsArray.length > 1) {
 
-      if (resultsArray[0] === resultsArray[1]) {
+      if (g.resultsArray[0] === g.resultsArray[1]) {
         check("correct");
-        counter ++;
+        g.counter ++;
         win();
-        resultsArray = [];
+        g.resultsArray = [];
       } else {
         check("reverse");
-        resultsArray = [];
+        g.resultsArray = [];
       }
       
     }
     
   }
-   
 };
 
 
@@ -76,34 +104,9 @@ var check = function(className: string) {
 
 var win = function () {
 
-  if(counter === 5) {
-    clearInterval(Interval);
-    text.innerHTML = "Your time was " + seconds + ":" + tens;
+  if(g.counter === 5) {
+    clearInterval(g.Interval);
+    g.text.innerHTML = "Your time was " + g.seconds + ":" + g.tens;
   } 
-  
-}
-    
-function startTimer () {
-  tens++; 
-    
-  if(tens < 9){
-    appendTens.innerHTML = "0" + tens;
-  }
-    
-  if (tens > 9){
-    appendTens.innerHTML = "0" + tens;
-      
-  } 
-    
-  if (tens > 99) {
-    seconds++;
-    appendSeconds.innerHTML = "0" + seconds;
-    tens = 0;
-    appendTens.innerHTML = "0" + 0;
-  }
-    
-  if (seconds > 9){
-    appendSeconds.innerHTML = "0" + seconds;
-  }
   
 }
