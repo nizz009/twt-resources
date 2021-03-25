@@ -1,5 +1,5 @@
 var myCards = document.getElementById('container');
-var resultsArray: any[] = [];
+var resultsArray = [];
 var counter = 0;
 var text = document.getElementById('text');
 var seconds = 0; 
@@ -17,7 +17,7 @@ var images =
 ];
 
 var clone = images.slice(0); // duplicate array
-var cards:any = images.concat(clone); // merge to arrays 
+var cards = images.concat(clone); // merge to arrays 
 
 // Shufffel function
 function shuffle(o: string[]){
@@ -27,14 +27,14 @@ function shuffle(o: string[]){
 shuffle(cards);
 
 for (var i = 0; i < cards.length; i++) {
-  cards = document.createElement('div');
-  cards.dataset.item = cards[i];
-  cards.dataset.view = "card";
-  myCards.appendChild(cards);
+  var card= document.createElement('div');
+  card.dataset.item = cards[i];
+  card.dataset.view = "card";
+  myCards.appendChild(card);
      
-  cards.onclick = function () {
+  card.onclick = function () {
    
-    if (this.className != 'flipped' && this.className != 'correct'){
+    if (this.className!= 'flipped' && this.className!= 'correct'){
         this.className = 'flipped';
         var result = this.dataset.item;
         resultsArray.push(result);
