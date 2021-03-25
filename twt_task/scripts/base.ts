@@ -1,5 +1,5 @@
 var myCards = document.getElementById('container');
-var resultsArray = [];
+var resultsArray: any[] = [];
 var counter = 0;
 var text = document.getElementById('text');
 var seconds = 0; 
